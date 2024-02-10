@@ -4,7 +4,7 @@ export default {
   theme: {
     fontFamily: {
       pacifico: ["Pacifico", "sans-serif"],
-      fjalla: ["Fjalla One", "sans-serif"],
+      rubik: ["Rubik", "sans-serif"],
     },
     extend: {},
   },

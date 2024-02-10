@@ -1,5 +1,6 @@
 import { useForm } from "react-hook-form";
 import useSignup from "../hooks/useSignup";
+import Button from "./ui/Button";
 
 export default function SignupForm() {
   const { signup, isLoading, error } = useSignup();
@@ -25,46 +26,104 @@ export default function SignupForm() {
       },
     );
   };
+
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
-      <label htmlFor="displayName">Username</label>
+    <form
+      onSubmit={handleSubmit(onSubmit)}
+      className="flex w-4/5 flex-col gap-2"
+    >
       <input
         type="text"
-        {...register("displayName", { required: "Username is required" })}
+        placeholder="username*"
+        aria-label="username"
+        aria-invalid={errors.displayName ? "true" : "false"}
+        {...register("displayName", { required: true })}
+        className="auth-input"
       />
-      {errors.displayName && <p>{errors.displayName.message}</p>}
-      <label htmlFor="email">Email</label>
+      {errors.displayName && errors.displayName.type === "required" && (
+        <span role="alert" className="auth-span">
+          Username is required
+        </span>
+      )}
+
       <input
         type="email"
-        {...register("email", { required: "Email is required" })}
+        placeholder="email*"
+        aria-label="email"
+        aria-invalid={errors.email ? "true" : "false"}
+        {...register("email", {
+          required: true,
+          pattern: /^\S+@\S+$/i,
+        })}
+        className="auth-input"
       />
-      {errors.email && <p>{errors.email.message}</p>}
-      <label htmlFor="password">Password</label>
+      {errors.email && errors.email.type === "required" && (
+        <span role="alert" className="auth-span">
+          Email is required
+        </span>
+      )}
+      {errors.email && errors.email.type === "pattern" && (
+        <span role="alert" className="auth-span">
+          Invalid email format
+        </span>
+      )}
+
       <input
         type="password"
+        placeholder="password*"
+        aria-label="password"
+        aria-invalid={errors.password ? "true" : "false"}
         {...register("password", {
-          required: "Password is required",
+          required: true,
           minLength: {
             value: 6,
             message: "Password must have at least 6 characters",
           },
         })}
+        className="auth-input"
       />
-      {errors.password && <p>{errors.password.message}</p>}
-      <label htmlFor="confirmPassword">Confirm Password</label>
+      {errors.password && errors.password.type === "required" && (
+        <span role="alert" className="auth-span">
+          Password is required
+        </span>
+      )}
+      {errors.password && errors.password.type === "minLength" && (
+        <span role="alert" className="auth-span">
+          {errors.password.message}
+        </span>
+      )}
+
       <input
         type="password"
+        placeholder="confirm password*"
+        aria-label="confirm password"
+        aria-invalid={errors.confirmPassword ? "true" : "false"}
         {...register("confirmPassword", {
+          required: true,
           validate: (value) => {
             const { password } = getValues();
             return value === password || "Passwords do not match";
           },
         })}
+        className="auth-input"
       />
-      {errors.confirmPassword && <p>{errors.confirmPassword.message}</p>}
-      {!isLoading && <button type="submit">sign up</button>}
-      {isLoading && <button disabled>loading</button>}
-      {error && <p>{error.message}</p>}
+      {errors.confirmPassword && errors.confirmPassword.type === "required" && (
+        <span role="alert" className="auth-span">
+          Confirm password is required
+        </span>
+      )}
+      {errors.confirmPassword && errors.confirmPassword.type === "validate" && (
+        <span role="alert" className="auth-span">
+          {errors.confirmPassword.message}
+        </span>
+      )}
+      {!isLoading && <Button type="form">sign up</Button>}
+      {isLoading && (
+        <Button disabled type="form">
+          loading...
+        </Button>
+      )}
+      {error && <span className="auth-span">{error.message}</span>}
     </form>
   );
 }
