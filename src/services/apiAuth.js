@@ -25,6 +25,9 @@ export async function signup({ email, password, displayName }) {
     await updateProfile(userCredential.user, {
       displayName,
     });
+
+    await signInWithEmailAndPassword(auth, email, password);
+    return auth.currentUser;
   } catch (error) {
     console.log(error.code, error.message);
     throw error;

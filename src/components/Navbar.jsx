@@ -17,8 +17,8 @@ export default function Navbar() {
     <header className="fixed left-0 right-0 top-0 flex w-full items-center bg-yellow-200 p-3 font-rubik text-sm">
       <div className="max-w-screen-xlg m-auto flex w-full justify-between lg:px-8">
         <Link to="/" className="flex items-center justify-between">
-          <FaIceCream className="text-2xl text-pink-600" />
-          <h1 className="font-pacifico text-lg">icecream</h1>
+          <FaIceCream className=" text-2xl text-pink-600 " />
+          <h1 className="hidden font-pacifico text-lg md:block">icecream</h1>
         </Link>
         <nav className="flex items-center gap-2 lg:gap-5">
           <Link to="/icecreams">icecreams</Link>
