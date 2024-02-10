@@ -7,6 +7,8 @@ import AllIcecreams from "./pages/AllIceCreams.jsx";
 import NewIcecream from "./pages/NewIceCreams.jsx";
 import Icecream from "./pages/IceCream.jsx";
 import MyCart from "./pages/MyCart.jsx";
+import Signup from "./pages/Signup.jsx";
+import Login from "./pages/Login.jsx";
 import NotFound from "./pages/NotFound.jsx";
 import "./index.css";
 
@@ -21,6 +23,8 @@ const router = createBrowserRouter([
       { path: "/icecreams/new", element: <NewIcecream /> },
       { path: "/icecreams/:id", element: <Icecream /> },
       { path: "/cart", element: <MyCart /> },
+      { path: "/signup", element: <Signup /> },
+      { path: "/login", element: <Login /> },
     ],
   },
 ]);

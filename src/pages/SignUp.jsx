@@ -1,3 +1,9 @@
-export default function SignUp() {
-  return <div>SignUp</div>;
+import SignupForm from "../components/SignupForm";
+
+export default function Signup() {
+  return (
+    <section className="pt-24">
+      <SignupForm />
+    </section>
+  );
 }
