@@ -1,38 +1,88 @@
-import { useState } from "react";
-
-const DEFAULT_DATA = {
-  email: "",
-  password: "",
-};
+import { Link } from "react-router-dom";
+import { useForm } from "react-hook-form";
+import useLogin from "../hooks/useLogin";
+import Button from "./ui/Button";
 
 export default function LoginForm() {
-  const [formData, setFormData] = useState(DEFAULT_DATA);
-  const onChange = (event) => {
-    const { name, value } = event.target;
-    setFormData((prev) => ({ ...prev, [name]: value }));
-  };
-  const onSubmit = (event) => {
-    event.preventDefault();
-    console.log(formData);
+  const { login, isLoading } = useLogin();
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors },
+  } = useForm({ mode: "onBlur" });
+
+  const onSubmit = (data) => {
+    const { email, password } = data;
+    login(
+      { email, password },
+      {
+        onSettled: reset({
+          email: "",
+          password: "",
+        }),
+      },
+    );
   };
 
   return (
-    <form onSubmit={onSubmit}>
-      <label htmlFor="email">Email</label>
+    <form
+      onSubmit={handleSubmit(onSubmit)}
+      className="flex w-4/5 max-w-96 flex-col gap-2"
+    >
       <input
-        type="text"
-        name="email"
-        value={formData.email}
-        onChange={onChange}
+        type="email"
+        placeholder="email*"
+        aria-label="email"
+        aria-invalid={errors.email ? "true" : "false"}
+        {...register("email", {
+          required: true,
+          pattern: /^\S+@\S+$/i,
+        })}
+        className="auth-input"
       />
-      <label htmlFor="password">Password</label>
+      {errors.email && errors.email.type === "required" && (
+        <span role="alert" className="auth-span">
+          Email is required
+        </span>
+      )}
+      {errors.email && errors.email.type === "pattern" && (
+        <span role="alert" className="auth-span">
+          Invalid email format
+        </span>
+      )}
       <input
         type="password"
-        name="password"
-        value={formData.password}
-        onChange={onChange}
+        placeholder="password*"
+        aria-label="password"
+        aria-invalid={errors.password ? "true" : "false"}
+        {...register("password", {
+          required: true,
+        })}
+        className="auth-input"
       />
-      <button type="submit">Sign Up</button>
+      {errors.password && errors.password.type === "required" && (
+        <span role="alert" className="auth-span">
+          Password is required
+        </span>
+      )}
+      {errors.password && errors.password.type === "minLength" && (
+        <span role="alert" className="auth-span">
+          {errors.password.message}
+        </span>
+      )}
+      {!isLoading && <Button type="form">log in</Button>}
+      {isLoading && (
+        <Button disabled type="form">
+          loading...
+        </Button>
+      )}
+      <Link
+        to="/signup"
+        className="mt-2 text-center text-xs transition-all hover:font-semibold hover:underline"
+      >
+        Don&apos;t have an account? Sign Up
+      </Link>
     </form>
   );
 }

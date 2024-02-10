@@ -24,20 +24,3 @@ export default function useSignup() {
 
   return { signup, isLoading, error };
 }
-
-// export default function useSignup() {
-//   const { mutate, isLoading, isError, error, isSuccess } =
-//     useMutation(signupApi);
-
-//   function signupUser(email, password, displayName) {
-//     mutate({ email, password, displayName });
-//   }
-
-//   return {
-//     signup: signupUser,
-//     isLoading,
-//     isError,
-//     error,
-//     isSuccess,
-//   };
-// }

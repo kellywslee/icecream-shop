@@ -4,7 +4,7 @@ import useSignup from "../hooks/useSignup";
 import Button from "./ui/Button";
 
 export default function SignupForm() {
-  const { signup, isLoading, error } = useSignup();
+  const { signup, isLoading } = useSignup();
   const {
     register,
     handleSubmit,
@@ -15,7 +15,6 @@ export default function SignupForm() {
 
   const onSubmit = (data) => {
     const { displayName, email, password } = data;
-    console.log(displayName, email, password);
     signup(
       { displayName, email, password },
       {
@@ -124,7 +123,6 @@ export default function SignupForm() {
           loading...
         </Button>
       )}
-      {error && <span className="auth-span">{error.message}</span>}
       <Link
         to="/login"
         className="mt-2 text-center text-xs transition-all hover:font-semibold hover:underline"
