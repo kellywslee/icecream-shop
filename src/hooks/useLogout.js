@@ -1,6 +1,7 @@
 import { useQueryClient, useMutation } from "@tanstack/react-query";
 import { useNavigate } from "react-router-dom";
 import { logout as logoutApi } from "../services/apiAuth";
+import { toast } from "react-hot-toast";
 
 export default function useLogout() {
   const navigate = useNavigate();
@@ -13,7 +14,8 @@ export default function useLogout() {
         refetchActive: true,
         refetchInactive: true,
       });
-      navigate("/login", { replace: true });
+      toast.success("Logout successful!");
+      navigate("/", { replace: true });
     },
   });
 
