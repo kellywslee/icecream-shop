@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import useSignup from "../hooks/useSignup";
 import Button from "./ui/Button";
@@ -30,7 +31,7 @@ export default function SignupForm() {
   return (
     <form
       onSubmit={handleSubmit(onSubmit)}
-      className="flex w-4/5 flex-col gap-2"
+      className="flex w-4/5 max-w-96 flex-col gap-2"
     >
       <input
         type="text"
@@ -124,6 +125,12 @@ export default function SignupForm() {
         </Button>
       )}
       {error && <span className="auth-span">{error.message}</span>}
+      <Link
+        to="/login"
+        className="mt-2 text-center text-xs transition-all hover:font-semibold hover:underline"
+      >
+        Already a member? Sign In!
+      </Link>
     </form>
   );
 }

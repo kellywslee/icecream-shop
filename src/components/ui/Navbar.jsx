@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom";
 import { FaIceCream } from "react-icons/fa";
 import { RiShoppingBag3Fill } from "react-icons/ri";
-import Button from "./Button";
 
 export default function Navbar() {
   return (
@@ -20,8 +19,18 @@ export default function Navbar() {
               aria-label="shopping cart"
             />
           </Link>
-          <Button type="nav">login</Button>
-          <Button type="nav">signup</Button>
+          <Link
+            to="/login"
+            className="rounded-lg bg-rose-950 px-3 py-2 text-sm text-yellow-200 transition-all hover:bg-pink-600"
+          >
+            login
+          </Link>
+          <Link
+            to="/signup"
+            className="rounded-lg bg-rose-950 px-3 py-2 text-sm text-yellow-200 transition-all hover:bg-pink-600"
+          >
+            signup
+          </Link>
         </nav>
       </div>
     </header>
