@@ -2,8 +2,8 @@ import { Link } from "react-router-dom";
 import { FaIceCream } from "react-icons/fa";
 import { BiEditAlt } from "react-icons/bi";
 import { RiShoppingBag3Fill } from "react-icons/ri";
-import useCurrentUser from "../hooks/useCurrentUser";
-import useLogout from "../hooks/useLogout";
+import { useCurrentUser } from "../hooks/useAuth";
+import { useLogout } from "../hooks/useAuth";
 import User from "./ui/User";
 
 export default function Navbar() {

@@ -1,5 +1,5 @@
 import { Navigate } from "react-router-dom";
-import useCurrentUser from "../hooks/useCurrentUser";
+import { useCurrentUser } from "../hooks/useAuth";
 
 // eslint-disable-next-line react/prop-types
 export default function ProtectedRoute({ children, requiredAdmin }) {

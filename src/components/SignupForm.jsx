@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
-import useSignup from "../hooks/useSignup";
+import { useSignup } from "../hooks/useAuth";
 import Button from "./ui/Button";
 
 export default function SignupForm() {
