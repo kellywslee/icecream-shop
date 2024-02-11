@@ -24,9 +24,11 @@ export default function Navbar() {
         <nav className="flex items-center gap-2 lg:gap-5">
           <Link to="/icecreams">icecreams</Link>
           {user && <User user={user} />}
-          <Link to="/icecreams/new">
-            <BiEditAlt className="text-2xl" aria-label="edit" />
-          </Link>
+          {user && user.isAdmin && (
+            <Link to="/icecreams/new">
+              <BiEditAlt className="text-2xl" aria-label="edit" />
+            </Link>
+          )}
           <Link to="/cart">
             <RiShoppingBag3Fill
               className="text-2xl"
