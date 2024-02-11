@@ -29,12 +29,14 @@ export default function Navbar() {
               <BiEditAlt className="text-2xl" aria-label="edit" />
             </Link>
           )}
-          <Link to="/cart">
-            <RiShoppingBag3Fill
-              className="text-2xl"
-              aria-label="shopping cart"
-            />
-          </Link>
+          {user && (
+            <Link to="/cart">
+              <RiShoppingBag3Fill
+                className="text-2xl"
+                aria-label="shopping cart"
+              />
+            </Link>
+          )}
           <div className="flex gap-2">
             {!user && (
               <Link

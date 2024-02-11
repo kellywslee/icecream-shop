@@ -10,6 +10,7 @@ import MyCart from "./pages/MyCart.jsx";
 import Signup from "./pages/Signup.jsx";
 import Login from "./pages/Login.jsx";
 import NotFound from "./pages/NotFound.jsx";
+import ProtectedRoute from "./pages/ProtectedRoute.jsx";
 import "./index.css";
 
 const router = createBrowserRouter([
@@ -20,9 +21,23 @@ const router = createBrowserRouter([
     children: [
       { index: true, path: "/", element: <Home /> },
       { path: "/icecreams", element: <AllIcecreams /> },
-      { path: "/icecreams/new", element: <NewIcecream /> },
+      {
+        path: "/icecreams/new",
+        element: (
+          <ProtectedRoute requiredAdmin>
+            <NewIcecream />
+          </ProtectedRoute>
+        ),
+      },
       { path: "/icecreams/:id", element: <Icecream /> },
-      { path: "/cart", element: <MyCart /> },
+      {
+        path: "/cart",
+        element: (
+          <ProtectedRoute>
+            <MyCart />
+          </ProtectedRoute>
+        ),
+      },
       { path: "/signup", element: <Signup /> },
       { path: "/login", element: <Login /> },
     ],
