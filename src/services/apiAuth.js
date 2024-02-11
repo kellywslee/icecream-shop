@@ -5,7 +5,9 @@ import {
   signOut,
   onAuthStateChanged,
 } from "firebase/auth";
+import { ref, get } from "firebase/database";
 import { auth } from "./firebase";
+import { database } from "./firebase";
 
 export async function signup({ email, password, displayName }) {
   try {
@@ -57,11 +59,27 @@ export function getCurrentUser() {
   return new Promise((resolve, reject) => {
     const unsubscribe = onAuthStateChanged(
       auth,
-      (user) => {
+      async (user) => {
+        if (user) {
+          const updatedUser = await adminUser(user);
+          resolve(updatedUser);
+        } else {
+          resolve(null);
+        }
         unsubscribe();
-        resolve(user);
       },
       reject,
     );
+  });
+}
+
+async function adminUser(user) {
+  return get(ref(database, "admins")).then((snapshot) => {
+    if (snapshot.exists()) {
+      const admins = snapshot.val();
+      const isAdmin = admins.includes(user.uid);
+      return { ...user, isAdmin };
+    }
+    return user;
   });
 }

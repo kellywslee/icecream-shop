@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { FaIceCream } from "react-icons/fa";
+import { BiEditAlt } from "react-icons/bi";
 import { RiShoppingBag3Fill } from "react-icons/ri";
 import useCurrentUser from "../hooks/useCurrentUser";
 import useLogout from "../hooks/useLogout";
@@ -22,8 +23,10 @@ export default function Navbar() {
         </Link>
         <nav className="flex items-center gap-2 lg:gap-5">
           <Link to="/icecreams">icecreams</Link>
-          <Link to="/icecreams/new">new</Link>
           {user && <User user={user} />}
+          <Link to="/icecreams/new">
+            <BiEditAlt className="text-2xl" aria-label="edit" />
+          </Link>
           <Link to="/cart">
             <RiShoppingBag3Fill
               className="text-2xl"
