@@ -14,7 +14,7 @@ export default function NewIceCreamForm() {
 
   const { addNewIceCream, isLoading } = useAddNewIceCream();
 
-  const categories = [
+  const categoryOptions = [
     "fruit",
     "classic",
     "nut & spice",
@@ -29,6 +29,14 @@ export default function NewIceCreamForm() {
   const onSubmit = async (data) => {
     const file = data.image[0];
 
+    const selectedCategories = data.category
+      ? Object.entries(data.category)
+          // eslint-disable-next-line no-unused-vars
+          .filter(([_, isSelected]) => isSelected)
+          .map(([category]) => category)
+      : [];
+    const categoriesString = selectedCategories.join(",");
+
     try {
       const imageUrl = await uploadImage(file);
 
@@ -36,6 +44,7 @@ export default function NewIceCreamForm() {
         {
           ...data,
           image: imageUrl,
+          categories: categoriesString,
         },
         {
           onSuccess: () => {
@@ -82,7 +91,7 @@ export default function NewIceCreamForm() {
       <div className="rounded-md bg-yellow-100 p-2 font-rubik text-sm text-rose-800">
         <label htmlFor="categories">categories*</label>
         <div className="mt-2 grid grid-cols-2">
-          {categories.map((category) => (
+          {categoryOptions.map((category) => (
             <div key={category} className="flex items-center">
               <Checkbox
                 key={category}
