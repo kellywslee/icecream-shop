@@ -29,8 +29,8 @@ export default function NewIceCreamForm() {
   const onSubmit = async (data) => {
     const file = data.image[0];
 
-    const selectedCategories = data.category
-      ? Object.entries(data.category)
+    const selectedCategories = data.categories
+      ? Object.entries(data.categories)
           // eslint-disable-next-line no-unused-vars
           .filter(([_, isSelected]) => isSelected)
           .map(([category]) => category)

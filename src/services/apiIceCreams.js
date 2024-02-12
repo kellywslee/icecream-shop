@@ -9,7 +9,7 @@ export async function addNewIceCream(iceCream) {
       ...iceCream,
       id,
       price: parseFloat(iceCream.price),
-      options: iceCream.options ? iceCream.options.split(",") : [],
+      options: iceCream.options.split(","),
       categories: iceCream.categories.split(","),
     });
   } catch (error) {
