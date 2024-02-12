@@ -15,14 +15,14 @@ export default function NewIceCreamForm() {
   const { addNewIceCream, isLoading } = useAddNewIceCream();
 
   const categoryOptions = [
-    "fruit",
+    "asian-inspired",
+    "boozy",
     "classic",
-    "nut & spice",
-    "exotic & tropical",
-    "dessert-inspired",
     "coffee & tea",
-    "alcoholic & cocktail",
-    "vegan & dairy-free",
+    "dessert-inspired",
+    "fruit",
+    "nutty",
+    "vegan",
     "limited",
   ];
 

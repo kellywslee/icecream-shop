@@ -8,7 +8,6 @@ export default function Banner() {
           className="object-cover"
         />
       </div>
-
       <h2 className="text-center font-pacifico text-4xl text-white md:text-5xl lg:text-7xl">
         icecream
       </h2>
