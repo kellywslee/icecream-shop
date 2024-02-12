@@ -3,9 +3,9 @@ import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import App from "./App.jsx";
 import Home from "./pages/Home.jsx";
-import AllIcecreams from "./pages/AllIceCreams.jsx";
+import Menu from "./pages/Menu.jsx";
 import NewIcecream from "./pages/NewIceCreams.jsx";
-import Icecream from "./pages/IceCream.jsx";
+import IcecreamDetail from "./pages/IceCreamDetail.jsx";
 import MyCart from "./pages/MyCart.jsx";
 import Signup from "./pages/Signup.jsx";
 import Login from "./pages/Login.jsx";
@@ -20,7 +20,7 @@ const router = createBrowserRouter([
     errorElement: <NotFound />,
     children: [
       { index: true, path: "/", element: <Home /> },
-      { path: "/icecreams", element: <AllIcecreams /> },
+      { path: "/icecreams", element: <Menu /> },
       {
         path: "/icecreams/new",
         element: (
@@ -29,7 +29,7 @@ const router = createBrowserRouter([
           </ProtectedRoute>
         ),
       },
-      { path: "/icecreams/:id", element: <Icecream /> },
+      { path: "/icecreams/:id", element: <IcecreamDetail /> },
       {
         path: "/cart",
         element: (

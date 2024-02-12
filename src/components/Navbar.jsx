@@ -15,14 +15,19 @@ export default function Navbar() {
   };
 
   return (
-    <header className="fixed left-0 right-0 top-0 z-50 flex w-full items-center bg-yellow-200 p-3 font-rubik text-sm">
+    <header className="fixed left-0 right-0 top-0 z-50 flex w-full items-center bg-yellow-200 p-3 font-pacifico text-sm">
       <div className="max-w-screen-xlg m-auto flex w-full justify-between lg:px-8">
         <Link to="/" className="flex items-center justify-between">
           <FaIceCream className=" text-2xl text-pink-600 " />
-          <h1 className="hidden font-pacifico text-lg md:block">icecream</h1>
+          <h1 className="hidden text-lg md:block">icecream</h1>
         </Link>
-        <nav className="flex items-center gap-2 lg:gap-5">
-          <Link to="/icecreams">menu</Link>
+        <nav className="flex items-center gap-2  lg:gap-5">
+          <Link
+            to="/icecreams"
+            className="text-base transition-all hover:font-semibold"
+          >
+            menu
+          </Link>
           {user && <User user={user} />}
           {user && user.isAdmin && (
             <Link to="/icecreams/new">
