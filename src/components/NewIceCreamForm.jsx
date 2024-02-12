@@ -1,6 +1,7 @@
 import { useForm } from "react-hook-form";
 import uploadImage from "../services/uploader";
 import { useAddNewIceCream } from "../hooks/useIceCreams";
+import Checkbox from "./ui/Checkbox";
 import Button from "./ui/Button";
 
 export default function NewIceCreamForm() {
@@ -13,13 +14,23 @@ export default function NewIceCreamForm() {
 
   const { addNewIceCream, isLoading } = useAddNewIceCream();
 
+  const categories = [
+    "fruit",
+    "classic",
+    "nut & spice",
+    "exotic & tropical",
+    "dessert-inspired",
+    "coffee & tea",
+    "alcoholic & cocktail",
+    "vegan & dairy-free",
+    "limited",
+  ];
+
   const onSubmit = async (data) => {
     const file = data.image[0];
-    console.log(data);
 
     try {
       const imageUrl = await uploadImage(file);
-      console.log(imageUrl);
 
       addNewIceCream(
         {
@@ -68,20 +79,22 @@ export default function NewIceCreamForm() {
           Price is required
         </span>
       )}
-      <input
-        type="text"
-        placeholder="category*"
-        aria-label="category"
-        aria-invalid={errors.category ? "true" : "false"}
-        {...register("category", { required: true })}
-        className="auth-input"
-      />
-      {errors.category && errors.category.type === "required" && (
-        <span role="alert" className="auth-span">
-          Category is required
-        </span>
-      )}
-      <input
+      <div className="rounded-md bg-yellow-100 p-2 font-rubik text-sm text-rose-800">
+        <label htmlFor="categories">categories*</label>
+        <div className="mt-2 grid grid-cols-2">
+          {categories.map((category) => (
+            <div key={category} className="flex items-center">
+              <Checkbox
+                key={category}
+                category={category}
+                register={register}
+              />
+            </div>
+          ))}
+        </div>
+      </div>
+      <textarea
+        rows={6}
         type="text"
         placeholder="description*"
         aria-label="description"

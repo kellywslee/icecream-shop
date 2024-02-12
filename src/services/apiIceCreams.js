@@ -9,7 +9,7 @@ export async function addNewIceCream(iceCream) {
     await set(ref(database, `iceCreams/${id}`), {
       ...iceCream,
       id,
-      price: parseInt(iceCream.price, 10),
+      price: parseFloat(iceCream.price),
       options: iceCream.options ? iceCream.options.split(",") : [],
     });
   } catch (error) {
