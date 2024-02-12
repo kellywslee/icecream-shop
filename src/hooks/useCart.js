@@ -6,13 +6,13 @@ import {
 } from "../services/apiCart";
 import { toast } from "react-hot-toast";
 
-export function useCart() {
+export function useCart(uid) {
   const { data, isLoading, error } = useQuery({
     queryKey: ["cart"],
-    queryFn: getCart,
+    queryFn: () => getCart(uid),
     onError: (err) => toast.error(err.message),
   });
-  return { cart: data, isLoading, error };
+  return { items: data, isLoading, error };
 }
 
 export function useAddOrUpdateCart() {

@@ -1,10 +1,10 @@
 import { Link } from "react-router-dom";
 import { FaIceCream } from "react-icons/fa";
 import { BiEditAlt } from "react-icons/bi";
-import { RiShoppingBag3Fill } from "react-icons/ri";
 import { useCurrentUser } from "../hooks/useAuth";
 import { useLogout } from "../hooks/useAuth";
 import User from "./ui/User";
+import CartStatus from "./ui/CartStatus";
 
 export default function Navbar() {
   const { user } = useCurrentUser();
@@ -15,17 +15,14 @@ export default function Navbar() {
   };
 
   return (
-    <header className="fixed left-0 right-0 top-0 z-50 flex w-full items-center bg-yellow-200 p-3 font-pacifico text-sm">
+    <header className="fixed left-0 right-0 top-0 z-50 flex w-full items-center bg-yellow-200 p-3  text-sm">
       <div className="max-w-screen-xlg m-auto flex w-full justify-between lg:px-8">
         <Link to="/" className="flex items-center justify-between">
           <FaIceCream className=" text-2xl text-pink-600 " />
-          <h1 className="hidden text-lg md:block">icecream</h1>
+          <h1 className="hidden font-pacifico text-lg md:block">icecream</h1>
         </Link>
-        <nav className="flex items-center gap-2  lg:gap-5">
-          <Link
-            to="/icecreams"
-            className="text-base transition-all hover:font-semibold"
-          >
+        <nav className="flex items-center gap-2 font-rubik text-sm font-semibold lg:gap-5">
+          <Link to="/icecreams" className="transition-all hover:text-pink-600">
             menu
           </Link>
           {user && <User user={user} />}
@@ -36,10 +33,7 @@ export default function Navbar() {
           )}
           {user && (
             <Link to="/cart">
-              <RiShoppingBag3Fill
-                className="text-2xl"
-                aria-label="shopping cart"
-              />
+              <CartStatus />
             </Link>
           )}
           <div className="flex gap-2">

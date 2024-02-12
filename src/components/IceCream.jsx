@@ -17,7 +17,7 @@ export default function IceCream() {
   const handleSelect = (e) => {
     setSelected(e.target.value);
   };
-  const handleClick = (e) => {
+  const handleClick = () => {
     const iceCream = { id, title, image, price, option: selected, quantity: 1 };
     addOrUpdateCart(user.uid, iceCream);
   };
