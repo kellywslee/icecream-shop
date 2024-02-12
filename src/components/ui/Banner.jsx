@@ -1,14 +1,17 @@
 export default function Banner() {
   return (
-    <section className="relative mb-4 h-40 w-full bg-transparent">
-      <img
-        src="/images/banner.png"
-        alt="ice cream"
-        className="h-full w-full object-cover"
-      />
-      <div className="absolute top-12 w-full text-center">
-        <h2 className="font-pacifico text-7xl text-white">icecream</h2>
+    <section className="flex w-full flex-col items-center bg-transparent md:mb-2 md:h-40 lg:flex-row lg:justify-center lg:gap-4">
+      <div className="w-24">
+        <img
+          src="/images/banner.png"
+          alt="ice cream"
+          className="object-cover"
+        />
       </div>
+
+      <h2 className="text-center font-pacifico text-4xl text-white md:text-5xl lg:text-7xl">
+        icecream
+      </h2>
     </section>
   );
 }

@@ -7,10 +7,12 @@ export default function IceCream() {
     },
   } = useLocation();
   return (
-    <section className="flex w-5/6 rounded-xl bg-rose-50">
+    <section className="flex w-11/12 flex-col items-center rounded-xl bg-rose-50">
       <img src={image} alt={title} className="w-64" />
-      <div>
-        <h2>{title}</h2>
+      <div className="px-4">
+        <h2 className="font-semibold">{title}</h2>
+        <p>{`$ ${price}`}</p>
+        <p className="text-xs">{description}</p>
       </div>
     </section>
   );
