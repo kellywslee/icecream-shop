@@ -3,7 +3,7 @@ import Banner from "../components/ui/Banner";
 
 export default function Home() {
   return (
-    <main>
+    <main className="gap-4">
       <Banner />
       <IceCreams />
     </main>

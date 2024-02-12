@@ -9,7 +9,7 @@ body {
 }
 
 main {
-  @apply flex h-dvh w-full flex-col items-center pt-24 font-rubik;
+  @apply flex w-full flex-col items-center pb-6 pt-24 font-rubik;
 }
 
 @layer components {

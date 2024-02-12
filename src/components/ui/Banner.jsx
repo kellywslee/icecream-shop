@@ -1,10 +1,13 @@
 export default function Banner() {
   return (
-    <section className="relative h-96 bg-yellow-900">
-      <div className="-full bg-banner h-full bg-cover" />
-      <div className="absolute top-32 w-full text-center">
-        <h2>ice cream</h2>
-        <p>yummy</p>
+    <section className="relative mb-4 h-40 w-full bg-transparent">
+      <img
+        src="/images/banner.png"
+        alt="ice cream"
+        className="h-full w-full object-cover"
+      />
+      <div className="absolute top-12 w-full text-center">
+        <h2 className="font-pacifico text-7xl text-white">icecream</h2>
       </div>
     </section>
   );

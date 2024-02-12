@@ -22,7 +22,7 @@ export default function Navbar() {
           <h1 className="hidden font-pacifico text-lg md:block">icecream</h1>
         </Link>
         <nav className="flex items-center gap-2 lg:gap-5">
-          <Link to="/icecreams">icecreams</Link>
+          <Link to="/icecreams">menu</Link>
           {user && <User user={user} />}
           {user && user.isAdmin && (
             <Link to="/icecreams/new">
