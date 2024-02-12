@@ -1,21 +1,25 @@
 import { useState } from "react";
 import { useLocation } from "react-router-dom";
+import { useCurrentUser } from "../hooks/useAuth";
 import Button from "./ui/Button";
+import { addOrUpdateCart } from "../services/apiCart";
 
 export default function IceCream() {
   const {
     state: {
-      iceCream: { title, image, price, categories, description, options },
+      iceCream: { id, title, image, price, categories, description, options },
     },
   } = useLocation();
 
   const [selected, setSelected] = useState(options && options[0]);
+  const { user } = useCurrentUser();
+
   const handleSelect = (e) => {
     setSelected(e.target.value);
   };
   const handleClick = (e) => {
-    e.preventDefault();
-    console.log("Ordering", selected);
+    const iceCream = { id, title, image, price, option: selected, quantity: 1 };
+    addOrUpdateCart(user.uid, iceCream);
   };
 
   return (
