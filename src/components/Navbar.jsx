@@ -15,7 +15,7 @@ export default function Navbar() {
   };
 
   return (
-    <header className="fixed left-0 right-0 top-0 flex w-full items-center bg-yellow-200 p-3 font-rubik text-sm">
+    <header className="fixed left-0 right-0 top-0 z-50 flex w-full items-center bg-yellow-200 p-3 font-rubik text-sm">
       <div className="max-w-screen-xlg m-auto flex w-full justify-between lg:px-8">
         <Link to="/" className="flex items-center justify-between">
           <FaIceCream className=" text-2xl text-pink-600 " />

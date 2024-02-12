@@ -1,5 +1,8 @@
-import { useQueryClient, useMutation } from "@tanstack/react-query";
-import { addNewIceCream as addNewIceCreamApi } from "../services/apiIceCreams";
+import { useQueryClient, useMutation, useQuery } from "@tanstack/react-query";
+import {
+  addNewIceCream as addNewIceCreamApi,
+  getIceCreams,
+} from "../services/apiIceCreams";
 import { toast } from "react-hot-toast";
 
 export function useAddNewIceCream() {
@@ -19,4 +22,14 @@ export function useAddNewIceCream() {
   });
 
   return { addNewIceCream, isLoading, error };
+}
+
+export function useIceCreams() {
+  const { data, isLoading, error } = useQuery({
+    queryKey: ["iceCreams"],
+    queryFn: getIceCreams,
+    onError: (err) => toast.error(err.message),
+  });
+
+  return { iceCreams: data, isLoading, error };
 }

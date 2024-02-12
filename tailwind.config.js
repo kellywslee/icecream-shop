@@ -6,7 +6,11 @@ export default {
       pacifico: ["Pacifico", "sans-serif"],
       rubik: ["Rubik", "sans-serif"],
     },
-    extend: {},
+    extend: {
+      backgroundImage: {
+        banner: `url('./public/images/banner-2.png')`,
+      },
+    },
   },
   plugins: [],
 };

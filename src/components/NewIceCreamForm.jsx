@@ -77,6 +77,7 @@ export default function NewIceCreamForm() {
       )}
       <input
         type="number"
+        step="0.01"
         placeholder="price*"
         aria-label="price"
         aria-invalid={errors.price ? "true" : "false"}
@@ -126,7 +127,7 @@ export default function NewIceCreamForm() {
       />
       {errors.options && errors.options.type === "required" && (
         <span role="alert" className="auth-span">
-          Options is required
+          This field is required
         </span>
       )}
       <input
@@ -144,7 +145,7 @@ export default function NewIceCreamForm() {
         </span>
       )}
       <Button type="form" disabled={isLoading}>
-        {isLoading ? "Loading" : "Add"}
+        {isLoading ? "Loading..." : "Add"}
       </Button>
     </form>
   );
