@@ -10,7 +10,13 @@ export default function LoginForm() {
     handleSubmit,
     reset,
     formState: { errors },
-  } = useForm({ mode: "onBlur" });
+  } = useForm({
+    mode: "onBlur",
+    defaultValues: {
+      email: "demo@testemail.com",
+      password: import.meta.env.VITE_DEMO_PASSWORD,
+    },
+  });
 
   const onSubmit = (data) => {
     const { email, password } = data;
