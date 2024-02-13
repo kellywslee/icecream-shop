@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { FaPlusCircle } from "react-icons/fa";
 import { TiEquals } from "react-icons/ti";
 import { useCurrentUser } from "../hooks/useAuth";
@@ -21,8 +22,18 @@ export default function Cart() {
   const total = (subTotal + tax).toFixed(2);
 
   return (
-    <section className="w-full">
-      {!hasItems && <p>Cart is empty</p>}
+    <section className="flex w-full flex-col items-center">
+      {!hasItems && (
+        <div className="mt-12 flex flex-col items-center gap-2">
+          <p className="font-semibold">your cart is empty</p>
+          <Link
+            to="/menu"
+            className="underline-offset-4 transition-all hover:underline"
+          >
+            Back to Menu
+          </Link>
+        </div>
+      )}
       {hasItems && (
         <div className="mx-auto flex w-11/12 flex-col items-center gap-4">
           <ul className="flex flex-col items-center gap-3">

@@ -6,10 +6,11 @@ import {
 } from "../services/apiCart";
 import { toast } from "react-hot-toast";
 
-export function useCart(uid) {
+export function useCart(userId) {
   const { data, isLoading, error } = useQuery({
-    queryKey: ["cart"],
-    queryFn: () => getCart(uid),
+    queryKey: ["cart", userId || ""],
+    queryFn: () => getCart(userId),
+    enabled: !!userId,
     onError: (err) => toast.error(err.message),
   });
   return { items: data, isLoading, error };
@@ -23,8 +24,8 @@ export function useAddOrUpdateCart() {
     error,
   } = useMutation({
     mutationFn: addOrUpdateCartApi,
-    onSuccess: () => {
-      queryClient.invalidateQueries(["cart"]);
+    onSuccess: (userId) => {
+      queryClient.invalidateQueries(["cart", userId]);
       toast.success("Item added to the cart!");
     },
     onError: (err) => toast.error(err.message),
