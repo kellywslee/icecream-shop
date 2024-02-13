@@ -41,8 +41,8 @@ export function useRemoveFromCart() {
     error,
   } = useMutation({
     mutationFn: removeFromCartApi,
-    onSuccess: () => {
-      queryClient.invalidateQueries(["cart"]);
+    onSuccess: (userId) => {
+      queryClient.invalidateQueries(["cart", userId]);
       toast.success("Item removed from the cart!");
     },
     onError: (err) => toast.error(err.message),

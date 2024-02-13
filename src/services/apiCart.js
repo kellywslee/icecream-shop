@@ -23,7 +23,7 @@ export async function addOrUpdateCart({ userId, iceCream }) {
   }
 }
 
-export async function removeFromCart(userId, iceCreamId) {
+export async function removeFromCart({ userId, iceCreamId }) {
   try {
     await remove(ref(database, `carts/${userId}/${iceCreamId}`));
   } catch (error) {

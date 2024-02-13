@@ -25,7 +25,7 @@ export default function CartItem({
       iceCream: { ...item, quantity: quantity - 1 },
     });
   };
-  const handleDelete = () => removeFromCart(uid, id);
+  const handleDelete = () => removeFromCart({ userId: uid, iceCreamId: id });
 
   return (
     <li className="flex w-full items-center justify-center rounded-lg bg-rose-100 p-2 pr-8 shadow-md">
