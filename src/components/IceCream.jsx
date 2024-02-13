@@ -1,10 +1,11 @@
 import { useState } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { useCurrentUser } from "../hooks/useAuth";
 import { useAddOrUpdateCart } from "../hooks/useCart";
 import Button from "./ui/Button";
 
 export default function IceCream() {
+  const navigate = useNavigate();
   const {
     state: {
       iceCream: { id, title, image, price, categories, description, options },
@@ -20,11 +21,12 @@ export default function IceCream() {
   };
   const handleClick = () => {
     const iceCream = { id, title, image, price, option: selected, quantity: 1 };
+    if (!user) navigate("/login");
     addOrUpdateCart({ userId: user.uid, iceCream });
   };
 
   return (
-    <section className="flex w-11/12 flex-col items-center rounded-xl bg-rose-50 pb-10 shadow-md md:w-5/6 lg:w-2/3">
+    <section className="flex w-11/12 max-w-screen-md flex-col items-center rounded-xl bg-rose-50 pb-10 shadow-md md:w-5/6 lg:w-2/3">
       <img src={image} alt={title} className="w-64" />
       <div className="flex flex-col items-center gap-2 px-6 text-sm">
         <h2 className="text-lg font-semibold">{title}</h2>

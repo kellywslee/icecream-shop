@@ -6,7 +6,7 @@ export default function IceCreams() {
   const { iceCreams, isLoading } = useIceCreams();
 
   return (
-    <section className="w-5/6">
+    <section className="w-5/6 max-w-screen-2xl">
       {isLoading && <Loader />}
       <ul className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-4">
         {iceCreams &&

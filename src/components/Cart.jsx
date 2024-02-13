@@ -25,7 +25,7 @@ export default function Cart() {
     <section className="flex w-full flex-col items-center">
       {!hasItems && (
         <div className="mt-12 flex flex-col items-center gap-2">
-          <p className="font-semibold">your cart is empty</p>
+          <p className="font-semibold">Your shopping bag is empty</p>
           <Link
             to="/menu"
             className="underline-offset-4 transition-all hover:underline"
