@@ -35,13 +35,13 @@ export default function Cart() {
         </div>
       )}
       {hasItems && (
-        <div className="mx-auto flex w-11/12 flex-col items-center gap-4">
-          <ul className="flex flex-col items-center gap-3">
+        <div className="mx-auto flex w-11/12 flex-col items-center gap-4 md:w-1/2 lg:w-1/3">
+          <ul className="flex w-full flex-col items-center gap-3">
             {items.map((item) => (
               <CartItem key={item.id} item={item} uid={user.uid} />
             ))}
           </ul>
-          <div className="flex items-center justify-around gap-2">
+          <div className="flex w-full items-center justify-around gap-2">
             <PriceCard text="sub total" price={subTotal} />
             <FaPlusCircle className="text-xl" />
             <PriceCard text="tax" price={tax} />

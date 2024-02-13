@@ -5,7 +5,7 @@ export default function Button({ children, disabled, type, onClick }) {
   const styles = {
     form: `${base} mt-2 font-bold`,
     add: `${base} my-4 w-1/3`,
-    order: `${base} w-11/12`,
+    order: `${base} w-full`,
   };
 
   return (

@@ -30,14 +30,19 @@ export default function CartItem({
   return (
     <li className="flex w-full items-center justify-center rounded-lg bg-rose-100 p-2 pr-8 shadow-md">
       <img src={image} alt={title} className="w-36" />
-      <div className="flex flex-col text-sm ">
+      <div className="flex w-full flex-col text-sm">
         <p className="font-semibold">{title}</p>
         <p>{`$ ${price}`}</p>
         <p>option: {option}</p>
-        <div className="mt-2 flex items-center gap-3 text-xl">
-          <MdRemoveCircleOutline onClick={handleRemove} className="cart-icon" />
-          <span className="text-base font-semibold">{quantity}</span>
-          <MdAddCircleOutline onClick={handleAdd} className="cart-icon" />
+        <div className="mt-2 flex w-full items-center justify-between pr-8 text-xl">
+          <div className="flex w-full items-center gap-3">
+            <MdRemoveCircleOutline
+              onClick={handleRemove}
+              className="cart-icon"
+            />
+            <span className="text-base font-semibold">{quantity}</span>
+            <MdAddCircleOutline onClick={handleAdd} className="cart-icon" />
+          </div>
           <RiDeleteBin6Line onClick={handleDelete} className="cart-icon" />
         </div>
       </div>
