@@ -1,5 +1,5 @@
 import { useIceCreams } from "../hooks/useIceCreams";
-import IceCreamCard from "./IceCreamCard";
+import IceCreamCard from "./ui/IceCreamCard";
 import Loader from "./ui/Loader";
 
 export default function IceCreams() {

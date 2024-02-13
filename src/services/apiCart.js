@@ -14,7 +14,7 @@ export async function getCart(userId) {
   }
 }
 
-export async function addOrUpdateCart(userId, iceCream) {
+export async function addOrUpdateCart({ userId, iceCream }) {
   try {
     await set(ref(database, `carts/${userId}/${iceCream.id}`), iceCream);
   } catch (error) {

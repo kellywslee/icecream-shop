@@ -1,3 +1,9 @@
+import Cart from "../components/Cart";
+
 export default function MyCart() {
-  return <div>MyCart</div>;
+  return (
+    <main>
+      <Cart />
+    </main>
+  );
 }
