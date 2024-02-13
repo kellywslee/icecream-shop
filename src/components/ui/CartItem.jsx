@@ -28,18 +28,18 @@ export default function CartItem({
   const handleDelete = () => removeFromCart(uid, id);
 
   return (
-    <li>
-      <img src={image} alt={title} />
-      <div>
-        <p>{title}</p>
-        <p>{option}</p>
-        <div>
-          <MdAddCircleOutline onClick={handleAdd} />
-          <span>{quantity}</span>
-          <MdRemoveCircleOutline onClick={handleRemove} />
-          <RiDeleteBin6Line onClick={handleDelete} />
+    <li className="flex w-full items-center justify-center rounded-lg bg-rose-100 p-2 pr-8 shadow-md">
+      <img src={image} alt={title} className="w-36" />
+      <div className="flex flex-col text-sm ">
+        <p className="font-semibold">{title}</p>
+        <p>{`$ ${price}`}</p>
+        <p>option: {option}</p>
+        <div className="mt-2 flex items-center gap-3 text-xl">
+          <MdRemoveCircleOutline onClick={handleRemove} className="cart-icon" />
+          <span className="text-base font-semibold">{quantity}</span>
+          <MdAddCircleOutline onClick={handleAdd} className="cart-icon" />
+          <RiDeleteBin6Line onClick={handleDelete} className="cart-icon" />
         </div>
-        <p>{price}</p>
       </div>
     </li>
   );

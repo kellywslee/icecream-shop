@@ -56,7 +56,7 @@ export default function IceCream() {
             ))}
           </select>
 
-          <Button type="order" onClick={handleClick}>
+          <Button type="add" onClick={handleClick}>
             Add to Cart
           </Button>
         </div>
