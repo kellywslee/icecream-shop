@@ -1,8 +1,9 @@
-# React + Vite
+# ice cream shop 🍦
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+🚀 [Live Demo](https://kellysicecreamshop.netlify.app)
 
-Currently, two official plugins are available:
+React + Firebase + Cloudinary
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+<img src="https://github.com/kellywslee/icecream-shop/assets/76071382/9dd57833-0bdf-4950-8210-54eef8e7ec5f" width="600" height="300">
+<img src="https://github.com/kellywslee/icecream-shop/assets/76071382/f4159fa5-669f-43b3-8b5d-6c42d17df5db" width="600" height="300">
+
