@@ -9,5 +9,5 @@ React + Firebase + Cloudinary
 
 1. `git clone`
 2. `npm install`
-3. copy .env
+3. copy `.env` file
 4. `npm run dev`
