@@ -8,6 +8,6 @@ React + Firebase + Cloudinary
 <img src="https://github.com/kellywslee/icecream-shop/assets/76071382/f4159fa5-669f-43b3-8b5d-6c42d17df5db" width="600" height="300">
 
 1. `git clone`
-2. npm install
+2. `npm install`
 3. copy .env
-4. npm run dev
+4. `npm run dev`
