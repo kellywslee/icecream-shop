@@ -26,7 +26,7 @@ export function useAddOrUpdateCart() {
     mutationFn: addOrUpdateCartApi,
     onSuccess: (userId) => {
       queryClient.invalidateQueries(["cart", userId]);
-      toast.success("Item added to the cart!");
+      toast.success("Item updated in the cart!");
     },
     onError: (err) => toast.error(err.message),
   });
